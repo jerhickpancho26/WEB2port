@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JERHICK PANCHO — BSCS 3A</title>
+<meta name="description" content="Portfolio of JERHICK PANCHO, a third-year student pursuing Bachelor of Science in Computer Science at NEMSU Lianga.">
+
+
+<script>
+  (function () {
+    var r = document.documentElement, t = null;
+    r.classList.add('js');
+    try { t = localStorage.getItem('theme'); } catch (e) {}
+    if (!t) t = (window.matchMedia && matchMedia('(prefers-color-scheme: light)').matches) ? 'light' : 'dark';
+    r.setAttribute('data-theme', t);
+  })();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Loading screen (only shown when JavaScript is available; always very short) -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-inner">
+    <p class="loader-name">JERHICK PANCHO</p>
+    <p class="loader-text">Loading… <span id="loaderPct">0%</span></p>
+    <div class="loader-track"><span id="loaderBar"></span></div>
+  </div>
+</div>
+
+<!-- Page-wide animated background (decorative; hidden from assistive technology) -->
+<div class="site-bg" id="siteBg" aria-hidden="true">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="blob blob-a"></div>
+  <div class="blob blob-b"></div>
+  <canvas id="heroCanvas"></canvas>
+  <div class="shape" data-depth="26" style="top:24%;left:1.5%"><span class="shape-inner ring"></span></div>
+  <div class="shape" data-depth="-18" style="top:82%;left:47%"><span class="shape-inner tri"></span></div>
+  <div class="shape" data-depth="34" style="top:12%;right:3%"><span class="shape-inner square"></span></div>
+  <div class="shape" data-depth="-28" style="bottom:14%;right:2%"><span class="shape-inner ring small"></span></div>
+</div>
+
+<div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="#home" class="brand" id="brandLink"><span class="brand-mark" aria-hidden="true"><i class="fa-solid fa-user"></i></span> JERHICK PANCHO</a>
+
+    <button class="nav-toggle" id="navToggle" aria-controls="primaryNav" aria-expanded="false">
+      <span class="visually-hidden">Menu</span>
+      <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+
+    <nav class="primary-nav" id="primaryNav" aria-label="Primary">
+      <ul>
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+        <li><a href="#resume" class="nav-link">Resume</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light mode">
+        <i class="fa-solid fa-sun" id="themeIcon" aria-hidden="true"></i>
+        <span id="themeLabel">Light</span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <!-- ================= HERO ================= -->
+  <section id="home" class="hero" aria-label="Introduction">
+
+    <div class="hero-inner">
+      <div class="hero-text">
+        <p class="status"><span class="status-dot" aria-hidden="true"></span> Philippians 4:13
+        <h1>
+          <span class="hero-greeting">Hello, I'm</span>
+          <span class="gradient-text hero-name">JERHICK</span>
+        </h1>
+
+        <p class="hero-role">
+          <!-- Static text for screen readers and no-JS users; the animated version below is hidden from them -->
+          <span class="visually-hidden">, Front-End Developer, and UI/UX Enthusiast.</span>
+          <span class="typed-wrap" aria-hidden="true"><span id="typed" class="typed">Web Content Creator · Front-End Developer · UI/UX Enthusiast</span><span class="caret"></span></span>
+        </p>
+
+        <p class="hero-words">
+          <span style="--i:0">Create.</span>
+          <span style="--i:1">Design.</span>
+          <span style="--i:2">Develop.</span>
+        </p>
+
+        <p class="hero-intro">I’m a third-year student pursuing Bachelor of Science in Computer Science student at NEMSU Lianga, passionate about technology, programming, and web development. I enjoy learning new skills, building projects, and exploring how technology can solve real-world problems.
+</p>
+
+        <div class="hero-actions">
+          <a href="#portfolio" class="btn btn-primary btn-lg magnetic">View My Work <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          <a href="#contact" class="btn btn-ghost btn-lg magnetic">Contact Me</a>
+        </div>
+      </div>
+
+      <div class="hero-media">
+        <div class="frame">
+          <span class="frame-ring" aria-hidden="true"></span>
+          <img src="me.png" alt="Portrait illustration of Jordan Reyes" width="360" height="360" fetchpriority="high">
+        </div>
+        <ul class="chips" aria-hidden="true">
+          <li class="chip chip-1"><i class="fa-brands fa-html5"></i> HTML</li>
+          <li class="chip chip-2"><i class="fa-brands fa-css3-alt"></i> CSS</li>
+          <li class="chip chip-3"><i class="fa-brands fa-js"></i> JS</li>
+          <li class="chip chip-4"><i class="fa-solid fa-universal-access"></i> PYTHON</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= STATS ================= -->
+   
+  <section id="stats" class="stats" aria-labelledby="stats-heading">
+    <div class="section-inner">
+      <h2 id="stats-heading" class="visually-hidden">Portfolio at a glance</h2>
+      <ul class="stats-grid">
+        <li class="stat glass" data-reveal="scale" style="--d:0">
+          <p class="stat-value"><span class="visually-hidden">5</span><span aria-hidden="true" data-count="5" data-suffix="+">5+</span></p>
+          <p class="stat-label">Projects showcased</p>
+        </li>
+        <li class="stat glass" data-reveal="scale" style="--d:1">
+          <p class="stat-value"><span class="visually-hidden">7</span><span aria-hidden="true" data-count="7" data-suffix="">7</span></p>
+          <p class="stat-label">Skill areas</p>
+        </li>
+        <li class="stat glass" data-reveal="scale" style="--d:2">
+          <p class="stat-value"><span class="visually-hidden">2</span><span aria-hidden="true" data-count="2" data-suffix="+">2</span></p>
+          <p class="stat-label">Years learning</p>
+        </li>
+        
+      </ul>
+      <p class="stats-note">Sample figures. Replace them with your own real numbers.</p>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section id="about" class="section" aria-labelledby="about-heading">
+    <div class="section-inner about-grid">
+      <div class="about-media" data-reveal="left">
+        <div class="frame frame-lg">
+          <span class="frame-ring" aria-hidden="true"></span>
+          <img src="me.png"  width="360" height="360" loading="lazy" decoding="async">
+        </div>
+        <p class="sparkles" aria-hidden="true"><span>✦</span><span>✦</span><span>✦</span></p>
+      </div>
+
+      <div class="about-content">
+        <div class="about-intro glass" data-reveal="blur">
+          <h2 id="about-heading">About Me</h2>
+          <span class="accent-bar" aria-hidden="true"></span>
+          <p class="lead">I am a third-year Computer Science student who enjoys learning about technology and computers. I like creating websites, developing simple systems, and exploring new programming tools. I am still improving my skills through school projects and personal practice. I am a hardworking, responsible, and curious person who is always willing to learn something new.</p>
+        </div>
+
+        <div class="about-cards">
+          <article class="mini glass" data-reveal="up" style="--d:0">
+            <h3><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Education</h3>
+            <p>B.S. in Computer Science, In NEMSU Lianga Campus.</p>
+          </article>
+          <article class="mini glass" data-reveal="up" style="--d:1">
+            <h3><i class="fa-solid fa-code" aria-hidden="true"></i> Skills</h3>
+            <p>HTML5, CSS3, JavaScript, responsive layout, accessible UI patterns, and content writing.</p>
+          </article>
+          <article class="mini glass" data-reveal="up" style="--d:2">
+            <h3><i class="fa-solid fa-bolt" aria-hidden="true"></i> Strength</h3>
+            <p>I can work well with others, manage my time, and learn from my mistakes. I always try to improve my skills and become better at what I do.</p>
+          </article>
+          <article class="mini glass" data-reveal="up" style="--d:3">
+            <h3><i class="fa-solid fa-bullseye" aria-hidden="true"></i> Career goals</h3>
+            <p>Become a skilled software developer and build useful and reliable applications.I also want to gain real-world experience, work on meaningful projects, and continue learning new technologies as I grow in my career.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SKILLS ================= -->
+  <section id="skills" class="section" aria-labelledby="skills-heading">
+    <div class="section-inner">
+      <div class="section-head" data-reveal="blur">
+        <h2 id="skills-heading">Skills</h2>
+        <span class="accent-bar" aria-hidden="true"></span>
+        <p>What I work with, and how comfortable I am with each one.</p>
+      </div>
+
+      <ul class="skill-grid">
+        <li class="skill-card glass" data-reveal="up" style="--d:0">
+          <i class="fa-brands fa-html5" aria-hidden="true"></i>
+          <h3>HTML</h3>
+          <p class="skill-level"><span class="dots" aria-hidden="true">●●●</span> <span>Advanced</span></p>
+          <p>Semantic markup that assistive technology understands.</p>
+        </li>
+        <li class="skill-card glass" data-reveal="up" style="--d:1">
+          <i class="fa-brands fa-css3-alt" aria-hidden="true"></i>
+          <h3>CSS</h3>
+          <p class="skill-level"><span class="dots" aria-hidden="true">●●○</span> <span>Intermediate</span></p>
+          <p>Responsive, readable styling with strong contrast.</p>
+        </li>
+        <li class="skill-card glass" data-reveal="up" style="--d:2">
+          <i class="fa-brands fa-js" aria-hidden="true"></i>
+          <h3>JavaScript</h3>
+          <p class="skill-level"><span class="dots" aria-hidden="true">●●○</span> <span>Intermediate</span></p>
+          <p>Interactive features that stay keyboard friendly.</p>
+        </li>
+        <li class="skill-card glass" data-reveal="up" style="--d:3">
+          <i class="fa-solid fa-mobile-screen" aria-hidden="true"></i>
+          <h3>MySQL</h3>
+          <p class="skill-level"><span class="dots" aria-hidden="true">●●○</span> <span>Intermediate</span></p>
+          <p>Creating and managing databases.</p>
+        </li>
+        <li class="skill-card glass" data-reveal="up" style="--d:0">
+          <i class="fa-solid fa-pen-ruler" aria-hidden="true"></i>
+          <h3>UI/UX Design</h3>
+          <p class="skill-level"><span class="dots" aria-hidden="true">●○○</span> <span>Beginner</span></p>
+          <p>Creating simple and user-friendly interfaces.</p>
+        </li>
+        <li class="skill-card glass" data-reveal="up" style="--d:2">
+          <i class="fa-solid fa-palette" aria-hidden="true"></i>
+          <h3>Teamwork</h3>
+          <p class="skill-level"><span class="dots" aria-hidden="true">●●○</span> <span>Intermediate</span></p>
+          <p>Collaborating effectively with others to achieve common goals.</p>
+        </li>
+        <li class="skill-card glass" data-reveal="up" style="--d:3">
+          <i class="fa-solid fa-universal-access" aria-hidden="true"></i>
+          <h3>System Development</h3>
+          <p class="skill-level"><span class="dots" aria-hidden="true">●○○</span> <span>Beginner</span></p>
+          <p>Designing and developing basic systems.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= PORTFOLIO ================= -->
+   
+  <section id="portfolio" class="section" aria-labelledby="portfolio-heading">
+    <div class="section-inner">
+      <div class="section-head" data-reveal="blur">
+        <h2 id="portfolio-heading">Portfolio / Projects</h2>
+        <span class="accent-bar" aria-hidden="true"></span>
+        <p>Selected work. Filter by category to narrow the list.</p>
+      </div>
+
+      <div class="filter-bar" role="group" aria-label="Filter projects by category" data-reveal="up">
+        <button type="button" class="filter-btn is-active" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" class="filter-btn" data-filter="web-design" aria-pressed="false">Web Design</button>
+        <button type="button" class="filter-btn" data-filter="system-development" aria-pressed="false">System Development</button>
+        <button type="button" class="filter-btn" data-filter="minor-projects" aria-pressed="false">Minor Projects</button>
+      </div>
+      <p id="filter-status" class="visually-hidden" aria-live="polite"></p>
+
+      <ul class="project-grid" id="projectGrid">
+
+        <li class="project-item" data-category="web-design" data-reveal="up" style="--d:0">
+          <article class="project-card tilt glass">
+            <div class="project-media">
+              <img src="portfolio.png" alt="" width="400" height="240" loading="lazy" decoding="async">
+              <span class="project-badge" aria-hidden="true"><i class="fa-solid fa-arrow-up-right-from-square"></i> Preview</span>
+            </div>
+            <div class="project-body">
+              <p class="project-cat">Web Design</p>
+              <h3>Personal Portfolio Website</h3>
+              <p>This was my midterm requirements in WEB1</p>
+              <ul class="tags" aria-label="Technologies used"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+              <div class="project-actions">
+                <!-- Replace href with your live project link -->
+                <a class="btn btn-primary btn-sm" href="#portfolio">View Project<span class="visually-hidden">: Personal Portfolio Website</span> <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                <button type="button" class="btn btn-ghost btn-sm" >View Details<span class="visually-hidden">: Personal Portfolio Website</span></button>
+              </div>
+            </div>
+          </article>
+        </li>
+
+        <li class="project-item" data-category="system-development" data-reveal="up" style="--d:1">
+          <article class="project-card tilt glass">
+            <div class="project-media">
+              <img src="wireframe.png" alt="" width="400" height="240" loading="lazy" decoding="async">
+              <span class="project-badge" aria-hidden="true"><i class="fa-solid fa-arrow-up-right-from-square"></i> Preview</span>
+            </div>
+            <div class="project-body">
+              <p class="project-cat">System Development</p>
+              <h3>NETserve Internet Service System</h3>
+              <p>This was just a wireframe,because this project is on progress.</p>
+              <ul class="tags" aria-label="Technologies used"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+              <div class="project-actions">
+                <a class="btn btn-primary btn-sm" href="#portfolio">View Project<span class="visually-hidden">: NETserve Internet Service System</span> <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                <button type="button" class="btn btn-ghost btn-sm">View Details<span class="visually-hidden">: NETserve Internet Service System</span></button>
+              </div>
+            </div>
+          </article>
+        </li>
+
+        <li class="project-item" data-category="system-development" data-reveal="up" style="--d:2">
+          <article class="project-card tilt glass">
+            <div class="project-media">
+              <img src="ease.png" alt="" width="400" height="240" loading="lazy" decoding="async">
+              <span class="project-badge" aria-hidden="true"><i class="fa-solid fa-arrow-up-right-from-square"></i> Preview</span>
+            </div>
+            <div class="project-body">
+              <p class="project-cat">System Development</p>
+              <h3>DentEase Appointment System</h3>
+              <p>This was my final project in WEB1.</p>
+              <ul class="tags" aria-label="Technologies used"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>PHP</li><li>My SQL</li></ul>
+              <div class="project-actions">
+                <a class="btn btn-primary btn-sm" href="#portfolio">View Project<span class="visually-hidden">: DentEase Appointment System</span> <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                <button type="button" class="btn btn-ghost btn-sm" >View Details<span class="visually-hidden">: DentEase Appointment System</span></button>
+              </div>
+            </div>
+          </article>
+        </li>
+
+        <li class="project-item" data-category="system-development" data-reveal="up" style="--d:0">
+          <article class="project-card tilt glass">
+            <div class="project-media">
+              <img src="robot.png" alt="" width="400" height="240" loading="lazy" decoding="async">
+              <span class="project-badge" aria-hidden="true"><i class="fa-solid fa-arrow-up-right-from-square"></i> Preview</span>
+            </div>
+            <div class="project-body">
+              <p class="project-cat">System Development</p>
+              <h3>Embedded System</h3>
+              <p>It is a 2wd robot car that has sensor and remote.</p>
+              <ul class="tags" aria-label="Technologies used"><li>Arduino Uno</li></ul>
+              <div class="project-actions">
+                <a class="btn btn-primary btn-sm" href="#portfolio">View Project<span class="visually-hidden">: Embedded System</span> <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                <button type="button" class="btn btn-ghost btn-sm" >View Details<span class="visually-hidden">: Embedded System</span></button>
+              </div>
+            </div>
+          </article>
+        </li>
+
+        <li class="project-item" data-category="minor-projects" data-reveal="up" style="--d:1">
+          <article class="project-card tilt glass">
+            <div class="project-media">
+              <img src="diorama.png" alt="" width="400" height="240" loading="lazy" decoding="async">
+              <span class="project-badge" aria-hidden="true"><i class="fa-solid fa-arrow-up-right-from-square"></i> Preview</span>
+            </div>
+            <div class="project-body">
+              <p class="project-cat">Minor Project</p>
+              <h3>Diorama</h3>
+              <p>This our Final requirements in Comtemporary World Subject,the DIORAMA with the theme "Sustainable Society"</p>
+              <ul class="tags" aria-label="Technologies used"><li>Cardboard,papers</li><li>glue,color paint</li></ul>
+              <div class="project-actions">
+                <a class="btn btn-primary btn-sm" href="#portfolio">View Project<span class="visually-hidden">: Diorama</span> <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                <button type="button" class="btn btn-ghost btn-sm" >View Details<span class="visually-hidden">: Diorama</span></button>
+              </div>
+            </div>
+          </article>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= RESUME ================= -->
+  <section id="resume" class="section" aria-labelledby="resume-heading">
+    <div class="section-inner">
+      <div class="section-head" data-reveal="blur">
+        <h2 id="resume-heading">Resume</h2>
+        <span class="accent-bar" aria-hidden="true"></span>
+        <p>Education, training, projects, work, and certifications, newest first.</p>
+        <a class="btn btn-primary btn-lg resume-download magnetic" href="resume.docx" download aria-label="Download Jerhick resume as a Docx file">
+        <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i> Download Resume (DOCX)
+        </a>
+      </div>
+
+      <ol class="timeline" id="timeline">
+        <li class="timeline-item" data-reveal="right" style="--d:0">
+          <p class="t-year">2026 – Present</p>
+          <article class="t-card glass">
+              <p class="t-type"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Education</p>
+            <h3>B.S. in Computer Science</h3>
+            <p>Tig ayo sa WASHNG MACHINE</p>
+           
+          </article>
+        </li>
+        <li class="timeline-item" data-reveal="right" style="--d:0">
+          <p class="t-year">2025 </p>
+          <article class="t-card glass">
+            <p class="t-type"><i class="fa-solid fa-briefcase" aria-hidden="true"></i> Work experience</p>
+            <h3>BANTAY RAG TINDAHAN</h3>
+            <p>KAON RAG MAKAON</p>
+          </article>
+        </li>
+        <li class="timeline-item" data-reveal="right" style="--d:0">
+          <p class="t-year">2024</p>
+          <article class="t-card glass">
+            <p class="t-type"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i> Projects</p>
+            <h3>School &amp; Personal Projects</h3>
+            <p>WALA PAA</p>
+          </article>
+        </li>
+        
+        <li class="timeline-item" data-reveal="right" style="--d:0">
+          <p class="t-year">2022</p>
+          <article class="t-card glass">
+           <p class="t-type"><i class="fa-solid fa-certificate" aria-hidden="true"></i> Certification</p>
+            <h3>Certificate in HIGHSCHOOL</h3>
+            <p>Naa ras balay gi taguan</p>
+          </article>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact" class="section" aria-labelledby="contact-heading">
+    <div class="section-inner contact-grid">
+      <div class="contact-intro" data-reveal="left">
+        <h2 id="contact-heading">Contact Me</h2>
+        <span class="accent-bar" aria-hidden="true"></span>
+        <p class="lead">Have a project in mind or a question about accessibility? Send a message and I'll reply as soon as I can.</p>
+        <ul class="contact-details">
+          <li><i class="fa-solid fa-envelope" aria-hidden="true"></i> <a class="link-anim" href="mailto:jerhickpancho26@gmail.com">jerhickpancho26@gmail.com</a></li>
+          <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Sta Irene PADS</li>
+          </ul>
+        <ul class="contact-social">
+          <li><a class="social" href="https://www.facebook.com/jerhickbesas.panchoii" aria-label="Visit my Facebook profile"><i class="fa-brands fa-facebook" aria-hidden="true"></i><span class="tooltip" aria-hidden="true">Facebook</span></a></li>
+          <li><a class="social" href="https://www.tiktok.com/@lufiboy26" aria-label="Visit my TikTok profile"><i class="fa-brands fa-tiktok" aria-hidden="true"></i><span class="tooltip" aria-hidden="true">TikTok</span></a></li>
+          <li><a class="social" href="https://github.com/jerhickpancho26" aria-label="Visit my GitHub profile"><i class="fa-brands fa-github" aria-hidden="true"></i><span class="tooltip" aria-hidden="true">GitHub</span></a></li>
+        </ul>
+      </div>
+
+      <form id="contactForm" class="contact-form glass" novalidate data-reveal="right">
+        <p class="form-instructions">All fields are required.</p>
+
+        <div class="form-field">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" name="fullName" autocomplete="name" aria-describedby="fullNameError">
+          <p class="form-error" id="fullNameError" role="alert"></p>
+        </div>
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email" aria-describedby="emailError">
+          <p class="form-error" id="emailError" role="alert"></p>
+        </div>
+        <div class="form-field">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" aria-describedby="subjectError">
+          <p class="form-error" id="subjectError" role="alert"></p>
+        </div>
+        <div class="form-field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" aria-describedby="messageError"></textarea>
+          <p class="form-error" id="messageError" role="alert"></p>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg magnetic">Send Message <i class="fa-solid fa-paper-plane" aria-hidden="true"></i></button>
+        <p id="formSuccess" class="form-success" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-about">
+      <p class="brand"><span class="brand-mark" aria-hidden="true"><i class="fa-solid fa-user"></i></span> JERHICK PANCHO</p>
+      <p>Just contact me Kung Gimingaw ka.</p>
+      <p><i class="fa-solid fa-envelope" aria-hidden="true"></i> <a class="link-anim" href="mailto:jerhickpancho26@gmail.com">jerhickpancho26@gmail.com</a></p>
+    </div>
+
+    <nav class="footer-nav" aria-label="Footer">
+      <h2>Site Map</h2>
+      <ul>
+        <li><a class="link-anim" href="#home">Home</a></li>
+        <li><a class="link-anim" href="#about">About</a></li>
+        <li><a class="link-anim" href="#skills">Skills</a></li>
+        <li><a class="link-anim" href="#portfolio">Portfolio</a></li>
+        <li><a class="link-anim" href="#resume">Resume</a></li>
+        <li><a class="link-anim" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="footer-social">
+      <h2>Follow</h2>
+      <ul>
+        <li><a class="social" href="https://www.facebook.com/jerhickbesas.panchoii" aria-label="Visit my Facebook profile"><i class="fa-brands fa-facebook" aria-hidden="true"></i><span class="tooltip" aria-hidden="true">facebook</span></a></li>
+        <li><a class="social" href="https://www.tiktok.com/@lufiboy26" aria-label="Visit my tiktok profile"><i class="fa-brands fa-tiktok" aria-hidden="true"></i><span class="tooltip" aria-hidden="true">tiktok</span></a></li>
+        <li><a class="social" href="https://github.com/jerhickpancho26" aria-label="Visit my Github"><i class="fa-brands fa-github" aria-hidden="true"></i><span class="tooltip" aria-hidden="true">github</span></a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="copyright">&copy; 2026 Jerhick Pancho. All rights reserved.</p>
+</footer>
+
+<!-- Project details dialog (native <dialog>: focus is trapped and Escape closes it) -->
+<dialog id="projectDialog" class="dialog glass" aria-labelledby="dialogTitle">
+  <h2 id="dialogTitle"></h2>
+  <p class="project-cat" id="dialogCat"></p>
+  <p id="dialogText"></p>
+  <ul class="tags" id="dialogTags" aria-label="Technologies used"></ul>
+  <button type="button" class="btn btn-primary btn-sm" id="dialogClose">Close</button>
+</dialog>
+
+<button id="backToTop" class="back-to-top" type="button" aria-label="Back to top">
+  <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+  <span aria-hidden="true">Top</span>
+</button>
+
+<script src="script.js"></script>
+</body>
+</html>
